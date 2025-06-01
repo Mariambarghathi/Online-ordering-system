@@ -87,7 +87,7 @@
         </div>
 
  <select name="status" class="form-select" style="width: 200px; margin-top:2rem;" 
-    {{ $order->status === 'cancelled' ? 'disabled' : '' }}>
+    {{ in_array($order->status, ['cancelled', 'rejected', 'delivered']) ? 'disabled' : '' }}>
     @foreach ($statuses as $status)
         <option value="{{ $status }}" {{ $order->status === $status ? 'selected' : '' }}>
             {{ ucfirst($status) }}

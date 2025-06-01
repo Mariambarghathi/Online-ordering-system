@@ -19,7 +19,7 @@ public function edit($id)
 {
     $order = Order::with(['customer', 'items.product'])->findOrFail($id);
     
-    $statuses = ['accepted', 'rejected', 'pending', 'preparing', 'delivered', 'cancelled'];
+    $statuses = ['accepted', 'rejected', 'pending', 'preparing', 'delivered'];
 
  return view('dashboard.orders.details', compact('order', 'statuses'));
 }

@@ -47,7 +47,7 @@
 
 
             <label for="password" class="form-label mb-3" style="margin-top:1.5rem; ">Password</label>
-            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password"  required>
+            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="enter your password"  required>
             @error('password')
                 <div class="form-text text-danger">{{ $message }}</div>
             @enderror
