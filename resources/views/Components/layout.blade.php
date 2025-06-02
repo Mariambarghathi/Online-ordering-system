@@ -229,7 +229,9 @@ body {
     border-color: #9c8772	;
 }
 
-
+.sidebar-logo{
+  margin-top: 1rem;
+}
   </style>
 
 </head>
@@ -242,8 +244,8 @@ body {
     <span id="dashboard">Dashboard</span>
   </div>
 
-  <div class="text-center mb-5">
-    <img src="{{ asset('logo.png') }}" alt="Logo" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
+  <div class="text-center mb-5 sidebar-logo">
+    <img src="{{ asset('logo.png') }}" alt="Logo" class="rounded-circle" style="width: 120px; height: 120px; object-fit: cover;">
   </div>
 
   <ul class="nav nav-pills flex-column" role="menu">
