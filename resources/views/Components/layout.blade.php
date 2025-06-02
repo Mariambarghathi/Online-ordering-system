@@ -236,50 +236,47 @@ body {
 <body>
 
   <!-- Sidebar -->
-  <nav id="sidebar" aria-label="Sidebar Navigation">
-    <div class="sidebar-brand">
-      <span id="dashboard">Dashboard</span>
-    </div>
+ <!-- Sidebar -->
+<nav id="sidebar" aria-label="Sidebar Navigation">
+  <div class="sidebar-brand">
+    <span id="dashboard">Dashboard</span>
+  </div>
 
+  <div class="text-center mb-5">
+    <img src="{{ asset('logo.png') }}" alt="Logo" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
+  </div>
 
-     <div class="text-center mb-5">
-  <img src="{{ asset('logo.png')  }}" alt="Logo" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
-</div>
-
-
-    <ul class="nav nav-pills flex-column" role="menu">
-      <li class="nav-item">
-        <a href="{{ url('/dashboard/products/index') }}" class="nav-link {{ request()->is('dashboard/products*') ? 'active' : '' }}">
-          <span></i> <i class="bi bi-box-seam"></i>  Products</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        
-        <a href="{{ url('/dashboard/orders/index') }}" class="nav-link {{ request()->is('dashboard/orders*') ? 'active' : '' }}">
-  <span><i class="bi bi-cart"></i> Orders</span>
-</a>
-
-      </li>
-      <li class="nav-item">
-        <a href="{{ url('/dashboard/customers') }}" class="nav-link {{ request()->is('dashboard/customers*') ? 'active' : '' }}">
-          <span><i class="bi bi-people"></i> Customers</span>
-        </a>
-      </li>
-    </ul>
-
- 
-
-
-
-    <form id="logout-form" action="{{ route('dashboard.logout') }}" method="POST" style="display:none;">
-    @csrf
-</form>
-
-      <a href="#" id="logout-icon" class="logout-link" data-bs-toggle="modal" data-bs-target="#logoutModal" title="Log Out" role="button" tabindex="0" onclick="event.preventDefault();">
-        <span><i class="bi bi-box-arrow-left"></i> Logout</span>
+  <ul class="nav nav-pills flex-column" role="menu">
+    <li class="nav-item mb-3">
+      <a href="{{ url('/dashboard/products/index') }}" class="nav-link {{ request()->is('dashboard/products*') ? 'active' : '' }}">
+        <i class="bi bi-box-seam"></i>
+        <span>Products</span>
       </a>
-    </div>
-  </nav>
+    </li>
+    <li class="nav-item mb-3">
+      <a href="{{ url('/dashboard/orders/index') }}" class="nav-link {{ request()->is('dashboard/orders*') ? 'active' : '' }}">
+        <i class="bi bi-cart"></i>
+        <span>Orders</span>
+      </a>
+    </li>
+    <li class="nav-item mb-3">
+      <a href="{{ url('/dashboard/customers') }}" class="nav-link {{ request()->is('dashboard/customers*') ? 'active' : '' }}">
+        <i class="bi bi-people"></i>
+        <span>Customers</span>
+      </a>
+    </li>
+  </ul>
+
+  <form id="logout-form" action="{{ route('dashboard.logout') }}" method="POST" style="display:none;">
+    @csrf
+  </form>
+
+  <a href="#" class="logout-link mt-auto" data-bs-toggle="modal" data-bs-target="#logoutModal" onclick="event.preventDefault();">
+    <i class="bi bi-box-arrow-left"></i>
+    <span>Logout</span>
+  </a>
+</nav>
+
 
   <!-- Toggle Button -->
   <button id="sidebarToggle" aria-label="Toggle Sidebar" type="button" title="Toggle Sidebar">
