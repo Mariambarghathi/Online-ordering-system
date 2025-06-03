@@ -43,7 +43,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #A74F1F; /* Pumpkin brown */
+  background-color: #3a2a23;
   color: #FDF6E3;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -113,7 +113,7 @@ body {
 #sidebar ul.nav-pills li a:hover,
 #sidebar ul.nav-pills li a.active {
   color: #fff;
-  background-color: #8B3E1F;
+  background-color: #5b3c2a;
   text-decoration: none;
 }
 
@@ -147,7 +147,7 @@ body {
 }
 
 .logout-link:hover {
-  background-color: #8B3E1F;
+  background-color: #34241d;
   color: #fff;
 }
 
@@ -160,8 +160,8 @@ body {
   top: 15px;
   left: 15px;
   z-index: 1101;
-  border: 2px solid #A74F1F;
-  color: #A74F1F;
+  border: 2px solid #34241d;
+  color:  #34241d;
   padding: 5px 10px;
   border-radius: 6px;
   cursor: pointer;
@@ -245,7 +245,7 @@ body {
   </div>
 
   <ul class="nav nav-pills flex-column" role="menu">
-    
+
     <li class="nav-item mb-3">
       <a href="{{ url('/dashboard/products/index') }}" class="nav-link {{ request()->is('dashboard/products*') ? 'active' : '' }}">
         <i class="bi bi-box-seam"></i>
