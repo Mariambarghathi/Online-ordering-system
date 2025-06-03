@@ -12,7 +12,6 @@ class Order extends Model
         'customer_id'];
 
 
-            //relationships
 
             
     public function customer()

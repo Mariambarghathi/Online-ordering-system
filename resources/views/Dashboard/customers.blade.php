@@ -12,6 +12,7 @@
                     <th class="text-center">Location</th>
                 </tr>
             </thead>
+
             <tbody>
                 @foreach ($customers as $customer)
                 <tr>
@@ -22,6 +23,8 @@
                 @endforeach
             </tbody>
         </table>
+
+        <!--pagination-->
            <div class="d-flex justify-content-end mt-4">
     {{ $customers->links() }}
 </div>

@@ -1,16 +1,21 @@
 <x-layout>
+
     <div class="container py-5">
-        {{-- Back Button --}}
+          
+        <!--Back-->
         <div class="mb-3">
             <a href="{{ route('dashboard.products.index') }}" class="btn">
                 <i class="bi bi-arrow-left"></i> Back
             </a>
         </div>
+
+        <!--title-->
         <h2 class="mb-4 text-center fw-bold">Add New Product</h2>
 
         <form action="{{ route('dashboard.products.store') }}" method="POST" enctype="multipart/form-data" style="max-width: 600px; margin: 0 auto;">
             @csrf
 
+            <!--Add product form-->
             <div class="mb-3">
                 <label for="name" class="form-label">Product Name</label>
                 <input type="text" name="name" id="name" class="form-control" placeholder="Enter product name" value="{{ old('name') }}" required>

@@ -34,6 +34,8 @@
             </tbody>
         </table>
         
+<!--pagination-->
+
     <div class="d-flex justify-content-end mt-4">
     {{ $orders->links() }}
 </div>

@@ -1,28 +1,36 @@
 <x-layout>
+   
     <div class="container py-5" >
 
- {{-- Back Button --}}
+      <!--Back button-->
         <div class="mb-3">
             <a href="{{ route('dashboard.products.index') }}" class="btn">
                 <i class="bi bi-arrow-left"></i> Back
             </a>
         </div>
 
+    <!--title-->
         <h2 class="mb-4 text-center fw-bold">Edit Product</h2>
-
+       
         <form action="{{ route('dashboard.products.update', $product->id) }}" method="POST" enctype="multipart/form-data"  style="max-width: 600px; margin: 0 auto;">
             @csrf
             @method('PUT')
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul class="mb-0">
+          
+            <!--error handling-->
+
+            @if ($errors->any())
+                 <div class="alert alert-danger">
+       
+       
+            <ul class="mb-0">
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
-        </ul>
-    </div>
-@endif
+             </ul>
+             </div>
+            @endif
 
+            <!--edit form-->
             <div class="mb-3">
                 <label for="name" class="form-label">Product Name</label>
                 <input 

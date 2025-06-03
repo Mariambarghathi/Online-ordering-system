@@ -21,7 +21,7 @@
    <link rel="icon" type="image/png" href="{{ asset('logo.png') }}">
 
  <style>
- /* Base styles */
+ 
 body {
   overflow-x: hidden;
   font-family: 'Montserrat', sans-serif;
@@ -155,7 +155,6 @@ body {
   display: none;
 }
 
-/* Toggle Button */
 #sidebarToggle {
   position: fixed;
   top: 15px;
@@ -178,7 +177,6 @@ body {
 
 }
 
-/* Main Content */
 #main-content {
   margin-left: 250px;
   padding: 2rem;
@@ -190,7 +188,6 @@ body {
   margin-left: 70px;
 }
 
-/* Modal Styling */
 .modal-content {
   background-color: #fffaf5;
   color: #5C4033;
@@ -216,16 +213,16 @@ body {
 .pagination .page-item.active .page-link {
     background-color:#7E6B58	 !important;
     border-color: #7E6B58	 !important;
-    color: white !important; /* keep the text readable */
+    color: white !important; 
 }
 
 .pagination .page-link {
-    color: #7E6B58	; /* optional: change normal page links to grey as well */
+    color: #7E6B58	;
 }
 
 .pagination .page-link:hover {
     color: #615344	;
-    background-color:#a18c77	; /* lighter grey on hover */
+    background-color:#a18c77	;
     border-color: #9c8772	;
 }
 
@@ -237,8 +234,7 @@ body {
 </head>
 <body>
 
-  <!-- Sidebar -->
- <!-- Sidebar -->
+
 <nav id="sidebar" aria-label="Sidebar Navigation">
   <div class="sidebar-brand">
     <span id="dashboard">Dashboard</span>
@@ -249,30 +245,33 @@ body {
   </div>
 
   <ul class="nav nav-pills flex-column" role="menu">
+    
     <li class="nav-item mb-3">
       <a href="{{ url('/dashboard/products/index') }}" class="nav-link {{ request()->is('dashboard/products*') ? 'active' : '' }}">
         <i class="bi bi-box-seam"></i>
         <span>Products</span>
       </a>
     </li>
+
     <li class="nav-item mb-3">
       <a href="{{ url('/dashboard/orders/index') }}" class="nav-link {{ request()->is('dashboard/orders*') ? 'active' : '' }}">
         <i class="bi bi-cart"></i>
         <span>Orders</span>
       </a>
     </li>
+
     <li class="nav-item mb-3">
       <a href="{{ url('/dashboard/customers') }}" class="nav-link {{ request()->is('dashboard/customers*') ? 'active' : '' }}">
         <i class="bi bi-people"></i>
         <span>Customers</span>
       </a>
     </li>
+
   </ul>
 
   <form id="logout-form" action="{{ route('dashboard.logout') }}" method="POST" style="display:none;">
     @csrf
   </form>
-
   <a href="#" class="logout-link mt-auto" data-bs-toggle="modal" data-bs-target="#logoutModal" onclick="event.preventDefault();">
     <i class="bi bi-box-arrow-left"></i>
     <span>Logout</span>
@@ -280,17 +279,17 @@ body {
 </nav>
 
 
-  <!-- Toggle Button -->
+<!--Toggler-->
   <button id="sidebarToggle" aria-label="Toggle Sidebar" type="button" title="Toggle Sidebar">
     <i class="bi bi-list fs-6"></i>
   </button>
 
-  <!-- Main content -->
+<!--Main content-->
   <main id="main-content">
     {{ $slot }}
   </main>
 
-  <!-- Logout Confirmation Modal -->
+<!--Logout popup-->
   <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content rounded-3 shadow">
@@ -301,22 +300,19 @@ body {
         <div class="modal-body">
           Are you sure you want to log out?
         </div>
+
+    
         <div class="modal-footer">
           <button type="button" class="btn" style="background-color:  #C9A66B; color:white;" data-bs-dismiss="modal">Cancel</button>
-          <button
-            type="button"
-            class="btn"
-            style="background-color: #8B2D28	; color :white;"
-            onclick="document.getElementById('logout-form').submit();"
-          >
-            Yes, Log Out
+          <button type="button" class="btn" style="background-color: #8B2D28	; color :white;" onclick="document.getElementById('logout-form').submit();"
+          > Yes, Log Out
           </button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Bootstrap JS Bundle -->
+
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"
