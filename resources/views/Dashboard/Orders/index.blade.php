@@ -25,7 +25,7 @@
                     <td class="text-center">{{ $order->customer->phone_number }}</td>
                     <td class="text-center">{{ $order->customer->location }}</td>
 <td class="text-center">
-    {{ $order->created_at ? $order->created_at->format('Y-m-d H:i') : 'N/A' }}
+    {{ $order->created_at ? $order->created_at->format('Y-m-d') : 'N/A' }}
 </td>                    <td class="text-center">{{ $order->status }}</td>
                     <td class="text-center">{{ $order->total_price }} LYD</td>
                     <td class="text-center"> <a href="{{ route('orders.details', $order->id) }}" class="btn btn-sm "> <i class="bi bi-cart"></i> </a></td>
