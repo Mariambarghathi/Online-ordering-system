@@ -26,7 +26,24 @@
                     <td class="text-center">{{ $order->customer->location }}</td>
 <td class="text-center">
     {{ $order->created_at ? $order->created_at->format('Y-m-d') : 'N/A' }}
-</td>                    <td class="text-center">{{ $order->status }}</td>
+</td>                   
+
+<td class="text-center">
+    @php
+        $statusColors = [
+            'accepted' => 'bg-primary',
+            'rejected' => 'bg-danger',
+            'pending' => 'bg-warning text-dark',
+            'preparing' => 'bg-info text-dark',
+            'delivered' => 'bg-success',
+        ];
+    @endphp
+
+    <span class="badge rounded-pill {{ $statusColors[$order->status] ?? 'bg-secondary' }}">
+        {{ ucfirst($order->status) }}
+    </span>
+</td>
+
                     <td class="text-center">{{ $order->total_price }} LYD</td>
                     <td class="text-center"> <a href="{{ route('orders.details', $order->id) }}" class="btn btn-sm "> <i class="bi bi-cart"></i> </a></td>
                 </tr>
