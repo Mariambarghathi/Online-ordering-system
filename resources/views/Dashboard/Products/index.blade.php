@@ -42,9 +42,12 @@
             LYD {{ $product->price }}
         </div>
         
-        <div style="white-space: nowrap; font-size: 0.7rem;font-weight: 400;color: {{ $product->isAvailable ? 'darkgreen' : '#ff8787' }};">
-            {{ $product->isAvailable ? 'Available' : 'Not available' }}
-        </div>
+     <div>
+    <span class="badge {{ $product->isAvailable ? 'bg-success' : 'bg-danger' }}">
+        {{ $product->isAvailable ? 'Available' : 'Not Available' }}
+    </span>
+</div>
+
     </div>
 
 </div>
