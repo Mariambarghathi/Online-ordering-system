@@ -13,11 +13,25 @@ class ProductController extends Controller
     return view('dashboard.products.index', compact('products'));
     }
 
+ public function shop()
+{
+    $products = Product::where('isAvailable', true)->paginate(9);
+    return view('store.guest.shop', compact('products'));
+}
+
+ public function catalog()
+{
+    $products = Product::where('isAvailable', true)->paginate(9);
+    return view('store.registered.catalog', compact('products'));
+}
+
+
     public function create()
     {
         return view('dashboard.products.create');
     }
 
+    
 public function store(Request $request)
 {
     try {

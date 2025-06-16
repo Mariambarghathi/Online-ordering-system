@@ -3,40 +3,73 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\customer;
+use App\Models\Customer;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
-class customerController extends Controller
+class CustomerController extends Controller
 {
+    public function index()
+    {
+        $customers = Customer::paginate(10); 
+        return view('dashboard.customers', compact('customers'));
+    }
 
-    //To view all customers in the admin panel
-public function index()
-{
-    $customers = Customer::paginate(10); 
-    return view('dashboard.customers', compact('customers'));
-}
+    public function showRegisterForm()
+    {
+        return view('store.guest.create-account');
+    }
 
-    
-    public function store(Request $request)
+    public function register(Request $request)
     {
         $request->validate([
-            'name' => ['required'],
-            'phone' => ['required', 'unique:customers,phone'],
-            'location' => ['required'],
-            'password' => ['required']
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|unique:customers,phone_number',
+            'location' => 'required|string|max:255',
+            'password' => 'required|string|min:6|confirmed',
         ]);
 
-        
-        Customer::create($request);
+        $customer = Customer::create([
+            'name' => $request->name,
+            'phone_number' => $request->phone,
+            'location' => $request->location,
+            'password' => Hash::make($request->password),
+        ]);
 
-      //  return redirect()->route('customers.index')->with('success', 'Customer added successfully!');
+        Auth::guard('customer')->login($customer);
+
+        return redirect()->route('store.registered.catalog')->with('success', 'Account created and logged in!');
     }
 
-    // Show a customer's data
-    public function show(string $id)
+    public function showLoginForm()
     {
-        $customer = Customer::findOrFail($id);
-     //   return view('customers.show', compact('customer'));
+        return view('store.guest.login');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'name' => ['required', 'string'],
+            'password' => ['required'],
+        ]);
+
+        // Use correct field names based on your customers table
+        if (Auth::guard('customer')->attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended(route('store.registered.catalog'));
+        }
+
+        return back()->withErrors([
+            'name' => 'Invalid username or password.',
+        ]);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::guard('customer')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('guest.welcome');
     }
 }
-
-

@@ -269,13 +269,10 @@ body {
 
   </ul>
 
-  <form id="logout-form" action="{{ route('dashboard.logout') }}" method="POST" style="display:none;">
+ <form method="POST" action="{{ route('dashboard.logout') }}">
     @csrf
-  </form>
-  <a href="#" class="logout-link mt-auto" data-bs-toggle="modal" data-bs-target="#logoutModal" onclick="event.preventDefault();">
-    <i class="bi bi-box-arrow-left"></i>
-    <span>Logout</span>
-  </a>
+    <button type="submit" class="dropdown-item">  <i class="bi bi-box-arrow-left"></i> Logout</button>
+</form>
 </nav>
 
 

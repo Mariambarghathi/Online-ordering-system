@@ -30,5 +30,11 @@ class Order extends Model
         return $item->quantity * $item->product->price;
     });
 }
+
+public function orderItems()
+{
+    return $this->hasMany(OrderItem::class);
+}
+
 }
 
