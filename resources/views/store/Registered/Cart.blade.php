@@ -28,25 +28,33 @@
                                 <p class="fw-bold">LYD {{ $item->product->price }}</p>
                                 <p>Quantity: {{ $item->quantity }}</p>
 
-                                <div class="d-flex justify-content-between">
-                                    <form action="{{ route('cart.increase', $item->id) }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="btn btn-sm btn-success">+</button>
-                                    </form>
+                               
+                               
+                                <div class="btn-group w-100 mt-2" role="group">
+    <form action="{{ route('cart.decrease', $item->id) }}" method="POST" style="display:inline;">
+        @csrf
+        <button type="submit" class="btn btn-secondary btn-sm" style="margin-right:1rem;">−</button>
+    </form>
 
-                                    <form action="{{ route('cart.decrease', $item->id) }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="btn btn-sm btn-warning">−</button>
-                                    </form>
+    <button type="button" class="btn btn-outline-dark btn-sm disabled">
+        {{ $item->quantity }}
+    </button>
 
-                                    <form action="{{ route('cart.remove', $item->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                    </form>
-                                </div>
+    <form action="{{ route('cart.increase', $item->id) }}" method="POST" style="display:inline;">
+        @csrf
+        <button type="submit" class="btn btn-secondary btn-sm"  style="margin-left:1rem;">+</button>
+    </form>
+
+    <form action="{{ route('cart.remove', $item->id) }}" method="POST" style="display:inline;">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger btn-sm" style="margin-left:3rem;">
+            Delete
+        </button>
+    </form>
+</div>
+
+
                             </div>
                         </div>
                     </div>

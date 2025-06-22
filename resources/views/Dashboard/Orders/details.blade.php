@@ -9,11 +9,6 @@
 
     <!--Title-->
     <h1>Order Details #{{ $order->id }}</h1>
-
-    @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
-
     <form action="{{ route('orders.updateStatus', $order->id) }}" method="POST">
         @csrf
         @method('PUT')

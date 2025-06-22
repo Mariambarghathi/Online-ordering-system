@@ -30,12 +30,12 @@
             @endforeach
         </div>
 <!-- Only show cancel button if order is NOT rejected or delivered -->
-@if (!in_array($order->status, ['rejected', 'delivered']))
+@if (!in_array($order->status, ['rejected', 'delivered','cancelled']))
     <form action="{{ route('store.registered.orders.cancel', $order->id) }}" method="POST" style="margin-top: 2rem;">
-        @csrf
-        @method('PUT')
-        <button type="submit" class="btn btn-danger">Cancel this order?</button>
-    </form>
+    @csrf
+    <button type="submit" class="btn btn-danger">Cancel</button>
+</form>
+
 @else
     <!-- Nothing here. No nagging messages, just silence 😌 -->
 @endif

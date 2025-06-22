@@ -31,15 +31,12 @@
                             </div>
                         </div>
 
-                        <div class="card-body d-flex justify-content-between align-items-center px-3 py-2">
-                            <form action="" method="POST">
-                                @csrf
-                                <button type="submit" class="btn btn-sm" style="background-color: #34241d; color: white;">
-                                    <i class="bi bi-cart-plus"></i> Add to Cart
-                                </button>
-                            </form>
+                       <div class="card-body d-flex justify-content-between align-items-center px-3 py-2">
+    <a href="{{ route('guest.login.form') }}" class="btn btn-sm" style="background-color: #34241d; color: white;">
+        <i class="bi bi-cart-plus"></i> Add to Cart
+    </a>
+</div>
 
-                        </div>
                     </div>
                 </div>
             @endif

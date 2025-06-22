@@ -148,25 +148,10 @@ Register
   {{ $slot }}
 </main>
 
-<footer class="text-center text-lg-start mt-5" style="background-color: #3a2a23; color: #FDF6E3; padding: 2rem 0;">
-  <div class="container px-4">
-    <div class="row">
-      <div class="col-md-4 mb-3">
-        <h5 class="fw-bold">MagicalCrumbles</h5>
-        <p>Whimsical treats baked to delight. Discover your next favorite crumble with us!</p>
-      </div>
 
-      <div class="col-md-4 mb-3" style="margin-left: 20rem;">
-        <h5 class="fw-bold">Follow Us</h5>
-        <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="text-light me-3"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="text-light"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="text-light"><i class="fab fa-tiktok"></i></a>
-      </div>
-    </div>
-    <hr style="background-color: #FDF6E3;">
-    <p class="mb-0">2025 MagicalCrumbles.</p>
-  </div>
+
+<footer class="text-center text-lg-start mt-5" style="background-color: #3a2a23; color: #FDF6E3; padding: 2rem 0;">
+    <p class="mb-0" style="text-align: center;">Software development practice - Spring 2025</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

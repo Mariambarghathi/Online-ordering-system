@@ -4,12 +4,7 @@
             <h2 class="fw-bold text-center" style="margin-top:3rem;">Products Catalog</h2>
         </div>
 
-        @if(session('success'))
-            <div class="alert alert-success text-center mt-5" style="margin-top: 7rem;">
-                {{ session('success') }}
-            </div>
-        @endif
-
+     
         <div class="row g-4" style="margin-top: 7rem;">
             @foreach ($products as $product)
                 @if ($product->isAvailable)
@@ -36,7 +31,6 @@
                             </div>
 
                             <div class="card-body d-flex justify-content-between align-items-center px-3 py-2">
-                                <!-- ✅ Correct form action pointing to POST /cart/add/{product} -->
                                 <form action="{{ route('cart.add', $product->id) }}" method="POST">
                                     @csrf
                                     <button type="submit" class="btn btn-sm" style="background-color: #34241d; color: white;">

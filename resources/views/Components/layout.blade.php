@@ -229,6 +229,10 @@ body {
 .sidebar-logo{
   margin-top: 1rem;
 }
+
+.dropdown-item{
+  margin-left:1.5rem;
+}
   </style>
 
 </head>
@@ -269,12 +273,14 @@ body {
 
   </ul>
 
+
  <form method="POST" action="{{ route('dashboard.logout') }}">
     @csrf
-    <button type="submit" class="dropdown-item">  <i class="bi bi-box-arrow-left"></i> Logout</button>
+    <button type="submit" class="dropdown-item" >  <i class="bi bi-box-arrow-left"></i> Logout</button>
 </form>
 </nav>
 
+        
 
 <!--Toggler-->
   <button id="sidebarToggle" aria-label="Toggle Sidebar" type="button" title="Toggle Sidebar">
